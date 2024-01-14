@@ -263,4 +263,30 @@
                 $select[] = $d;}
                 return $select;
         }
+
+        public function viewulasan(){
+            $set = new Koneksi;
+            $sql = "select * from ulasanbuku LEFT JOIN user ON ulasanbuku.UserID=user.UserID LEFT JOIN buku ON ulasanbuku.BukuID=buku.BukuID";
+            $query = mysqli_query($set->kon(), $sql);
+            $select = [];
+            while($d = mysqli_fetch_assoc($query)){
+                $select[] = $d;}
+                return $select;
+        }
+        public function hapusulasan($id){
+            $set = new Koneksi;
+            $sql = "delete from ulasanbuku WHERE UlasanID='$id'";
+            $query = mysqli_query($set->kon(), $sql);
+            if($query){
+                echo "<script>";
+                echo 'alert("Berhasil Hapus Data!");';
+                echo 'window.location.href = "dashboard.php?page=ulasan";';
+                echo '</script>';
+            } else {
+                echo "<script>";
+                echo 'alert("Gagal Hapus Data!");';
+                echo 'window.location.href = "dashboard.php?page=ulasan";';
+                echo '</script>';
+            }
+        }
 }

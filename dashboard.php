@@ -61,5 +61,9 @@ $fungsi = new Fungsi;
         require('auth/koleksi.php');
     } elseif($_GET['page'] == 'printlaporan') {
         require('auth/printpdf.php');
+    } elseif($_GET['page'] == 'ulasan') {
+        require('auth/ulasan.php');
+    } elseif($_GET['page'] == 'hapusulasan') {
+        $fungsi->hapusulasan($_GET['id_ulasan']);
     }
     require_once('layouts/dashboard/footer.php');

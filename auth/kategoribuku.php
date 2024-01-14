@@ -1,4 +1,11 @@
-
+<?php 
+          if($_SESSION['data']['Role'] == 'user'){ 
+            echo "<script>";
+                echo 'alert("Anda tidak punya akses!");';
+                echo 'window.location.href = "index.php";';
+                echo '</script>';
+          }
+          ?>
 <h1>Kategori Buku</h1>
 <hr>
 <div class="mb-3">

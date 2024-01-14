@@ -1,52 +1,37 @@
-<h1>Data Buku</h1>
+<h1>Ulasan Buku</h1>
 <hr>
-<?php 
-          if($_SESSION['data']['Role'] == 'admin' || $_SESSION['data']['Role'] == 'petugas'){ ?>
-<div class="mb-3">
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahkategori">Tambah</button>
-</div>
-    <?php } ?>
+
 <div class="table-responsive">
     <table id="myTable" class="display">
         <thead>
             <tr>
                 <th>No</th>
+                <th>Nama</th>
                 <th>Judul</th>
-                <th>Penulis</th>
                 <th>Rating</th>
-                <th>Tahun Terbit</th>
-                <th>Kategori</th>
+                <th>Ulasan</th>
+                <?php
+                if($_SESSION['data']['Role'] == 'admin' || $_SESSION['data']['Role'] == 'petugas'){ ?>
                 <th>Aksi</th>
+                <?php } ?>
             </tr>
         </thead>
         <tbody>
             <?php 
             $no=1;
-                foreach($fungsi->viewbuku() as $d){ ?>
+                foreach($fungsi->viewulasan() as $d){ ?>
                 <tr>
                     <td><?= $no++; ?></td>
+                    <td><?= $d['NamaLengkap']; ?></td>
                     <td><?= $d['Judul']; ?></td>
-                    <td><?= $d['Penulis']; ?></td>
-                    <td><?= $d['Penerbit']; ?></td>
-                    <td><?= $d['TahunTerbit']; ?></td>
-                    <td><?php 
-                            foreach($fungsi->katbuku($d['BukuID']) as $k){ ?>
-                            <span class="badge badge-primary"><?= $k['NamaKategori']; ?></span>
-                        
-                        <?php    }
-                    ?></td>
+                    <td><?= $d['Rating']; ?></td>
+                    <td><?= $d['Ulasan']; ?></td>
+                    <?php
+                if($_SESSION['data']['Role'] == 'admin' || $_SESSION['data']['Role'] == 'petugas'){ ?>
                     <td>
-                    <?php 
-                        if($_SESSION['data']['Role'] == 'user'){ ?>
-                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#pinjam<?= $d['BukuID'] ?>">Pinjam</button>
-                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#ulas<?= $d['BukuID'] ?>">Ulas</button>
-                    <?php } ?>
-                    <?php 
-                        if($_SESSION['data']['Role'] == 'admin' || $_SESSION['data']['Role'] == 'petugas'){ ?>
-                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit<?= $d['BukuID'] ?>">Edit</button>
-                  <a class="btn btn-danger btn-sm" href="dashboard.php?page=hapusbuku&id_buku=<?= $d['BukuID'] ?>" onclick="return confirm('Apakah anda yakin menghapus data ini?')">Hapus</a>
-              <?php } ?>
+                        <a class="btn btn-danger btn-sm" href="dashboard.php?page=hapusulasan&id_ulasan=<?= $d['UlasanID'] ?>" onclick="return confirm('Apakah anda yakin menghapus data ini?')">Hapus</a>
                 </td>
+                <?php } ?>
                 </tr>
              <?php   }
             ?>

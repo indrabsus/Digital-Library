@@ -84,6 +84,14 @@
         </li>
        <?php   }
         ?>
+         <li class="nav-item">
+          <a href="dashboard.php?page=ulasan" class="nav-link">
+              <i class="nav-icon fa fa-share"></i>
+            <p>
+              Ulasan Buku
+            </p>
+          </a>
+        </li>
         
 
 

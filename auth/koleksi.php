@@ -1,3 +1,12 @@
+<?php 
+          if($_SESSION['data']['Role'] == 'admin' || $_SESSION['data']['Role'] == 'petugas'){ 
+            echo "<script>";
+                echo 'alert("Anda tidak punya akses!");';
+                echo 'window.location.href = "index.php";';
+                echo '</script>';
+          }
+          ?>
+
 <h1>Koleksi Pribadi</h1>
 <hr>
     
