@@ -10,11 +10,15 @@ class User {
         $data = mysqli_fetch_assoc($query);
         $datapassword = isset($data['Password']) ? $data['Password'] : "";
         if(password_verify($password, $datapassword)){
+            
             if($data['Role'] == 'admin'){
+                $_SESSION['data'] = $data;
                 header('location: dashboard.php?page=admin');
             } elseif($data['Role'] == 'petugas'){
+                $_SESSION['data'] = $data;
                 header('location: dashboard.php?page=petugas');
             } else {
+                $_SESSION['data'] = $data;
                 header('location: dashboard.php?page=user');
             }
         } else {
@@ -45,6 +49,13 @@ class User {
             echo 'window.location.href = "index.php?page=register";';
             echo '</script>';
         }
+    }
+    public function logout(){
+        session_destroy();
+        echo "<script>";
+            echo 'alert("Berhasil Logout.");';
+            echo 'window.location.href = "index.php?page=login";';
+            echo '</script>';
     }
 }
 

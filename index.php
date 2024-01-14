@@ -1,6 +1,10 @@
 
 <?php 
-    require_once('layouts/header.php');
+    session_start();
+    if(isset($_SESSION['data'])){
+        header('location: dashboard.php?page='.$_SESSION['data']['Role']);
+    }
+    require_once('layouts/login/header.php');
 
     require_once('config/auth.php');
     $cek = new User;
@@ -24,5 +28,5 @@
         $data['alamat'] = $_POST['alamat'];
         $cek->register($data);
     }
-    require_once('layouts/footer.php');
+    require_once('layouts/login/footer.php');
 ?>
