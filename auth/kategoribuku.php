@@ -51,7 +51,7 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="">Kategori</label>
-                <input type="text" class="form-control" name="kategori">
+                <input type="text" class="form-control" name="kategori" required>
               </div>
             </div>
             <div class="modal-footer justify-content-between">
@@ -82,7 +82,7 @@
             <input type="text" name="id_kategori" value="<?= $c['KategoriID'];?>" hidden>
               <div class="form-group">
                 <label for="">Nama Kategori</label>
-                <input type="text" class="form-control" name="kategori" value="<?= $c['NamaKategori'] ?>">
+                <input type="text" class="form-control" name="kategori" value="<?= $c['NamaKategori'] ?>" required>
               </div>
             </div>
             <div class="modal-footer justify-content-between">

@@ -68,19 +68,19 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="">Judul Buku</label>
-                <input type="text" class="form-control" name="judul">
+                <input type="text" class="form-control" name="judul" required>
               </div>
               <div class="form-group">
                 <label for="">Penulis</label>
-                <input type="text" class="form-control" name="penulis">
+                <input type="text" class="form-control" name="penulis" required>
               </div>
               <div class="form-group">
                 <label for="">Penerbit</label>
-                <input type="text" class="form-control" name="penerbit">
+                <input type="text" class="form-control" name="penerbit" required>
               </div>
               <div class="form-group">
                 <label for="">Tahun</label>
-                <input type="text" class="form-control" name="tahun">
+                <input type="number" class="form-control" name="tahun" required>
               </div>
               <div class="form-group">
               <?php 
@@ -118,19 +118,19 @@
             <input type="text" name="id_buku" value="<?= $c['BukuID'];?>" hidden>
               <div class="form-group">
                 <label for="">Judul Buku</label>
-                <input type="text" class="form-control" name="judul" value="<?= $c['Judul'] ?>">
+                <input type="text" class="form-control" name="judul" value="<?= $c['Judul'] ?>" required>
               </div>
               <div class="form-group">
                 <label for="">Penulis</label>
-                <input type="text" class="form-control" name="penulis" value="<?= $c['Penulis'] ?>">
+                <input type="text" class="form-control" name="penulis" value="<?= $c['Penulis'] ?>" required> 
               </div>
               <div class="form-group">
                 <label for="">Penerbit</label>
-                <input type="text" class="form-control" name="penerbit" value="<?= $c['Penerbit'] ?>">
+                <input type="text" class="form-control" name="penerbit" value="<?= $c['Penerbit'] ?>" required>
               </div>
               <div class="form-group">
                 <label for="">Tahun</label>
-                <input type="text" class="form-control" name="tahun" value="<?= $c['TahunTerbit'] ?>">
+                <input type="number" class="form-control" name="tahun" value="<?= $c['TahunTerbit'] ?>" required>
               </div>
              
             </div>
@@ -179,7 +179,7 @@
               </div>
               <div class="form-group">
                 <label for="">Tahun</label>
-                <input type="text" class="form-control" name="tahun" value="<?= $c['TahunTerbit'] ?>" disabled>
+                <input type="number" class="form-control" name="tahun" value="<?= $c['TahunTerbit'] ?>" disabled>
               </div>
              
             </div>
@@ -220,11 +220,11 @@
               </div>
               <div class="form-group">
                 <label for="">Ulasan</label>
-                <textarea name="ulasan" class="form-control" cols="30" rows="10"></textarea>
+                <textarea name="ulasan" class="form-control" cols="30" rows="10" required></textarea>
               </div>
               <div class="form-group">
                 <label for="">Rating</label>
-                <select name="rating" class="form-control">
+                <select name="rating" class="form-control" required>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>

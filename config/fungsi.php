@@ -89,6 +89,13 @@
         public function insertbuku($judul, $penulis, $penerbit, $tahun, $kategori){
             $set = new Koneksi;
             $sql = "INSERT INTO buku VALUES (NULL,'$judul', '$penulis', '$penerbit', '$tahun')";
+            if($kategori == NULL){
+                echo "<script>";
+                echo 'alert("Gagal Tambah Data!");';
+                echo 'window.location.href = "dashboard.php?page=databuku";';
+                echo '</script>';
+                exit();
+            }
             $query = mysqli_query($set->kon(), $sql);
             $buk = "select * from buku order by BukuID desc limit 1";
             $qkat = mysqli_query($set->kon(), $buk);
